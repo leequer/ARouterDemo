@@ -1,4 +1,4 @@
-package com.wxmylife.morgan.a;
+package com.wxmylife.morgan;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
