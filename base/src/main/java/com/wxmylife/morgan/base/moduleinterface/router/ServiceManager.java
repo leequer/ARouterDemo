@@ -17,6 +17,7 @@ public class ServiceManager {
     @Autowired
     IHomeProvider homeProvider;
 
+    //可以不使用@Autowired，手动发现服务
     IModule1Provider module1Provider;
     IModule2Provider module2Provider;
     IModule3Provider module3Provider;
@@ -42,6 +43,7 @@ public class ServiceManager {
 
 
 
+
     public IModule1Provider getModule1Provider() {
         return  module1Provider != null ? module1Provider : (module1Provider = ((IModule1Provider) ModuleRouter.newInstance(IModule1Provider.MODULE1_MAIN_SERVICE).navigation()));
     }
@@ -53,4 +55,5 @@ public class ServiceManager {
     public IModule3Provider getModule3Provider() {
         return module3Provider != null ? module3Provider : (module3Provider = ((IModule3Provider) ModuleRouter.newInstance(IModule3Provider.MODULE3_MAIN_SERVICE).navigation()));
     }
+
 }

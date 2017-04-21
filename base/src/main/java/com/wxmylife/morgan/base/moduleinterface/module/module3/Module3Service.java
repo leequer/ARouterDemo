@@ -14,7 +14,7 @@ public class Module3Service {
         return ModuleManager.getInstance().hasModule(IModule3Provider.MODULE3_MAIN_SERVICE);
     }
 
-    public static Fragment getModule2Fragment(Object... args) {
+    public static Fragment getModule3Fragment(Object... args) {
         if (!hasModule3()) return null;
         return ServiceManager.getInstance().getModule3Provider().newInstance(args);
     }

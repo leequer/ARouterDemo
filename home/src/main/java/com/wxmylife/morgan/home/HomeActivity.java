@@ -2,7 +2,6 @@ package com.wxmylife.morgan.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -33,13 +32,11 @@ public class HomeActivity extends BaseActivity {
     private int currentPosition = -1;
     private Map<String, Fragment> mFragments;
 
-
-    @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_home);
         mFragments = new HashMap<>();
-        LG.e(getIntent().getIntExtra(IHomeProvider.HOME_TABTYPE, 0)+"");
         selectedTab(getIntent().getIntExtra(IHomeProvider.HOME_TABTYPE, 0));
     }
 
@@ -55,21 +52,20 @@ public class HomeActivity extends BaseActivity {
         }
     }
 
-
     public void selectedTab(int position) {
-        if (currentPosition == position) {
+        if (currentPosition == position)
             return;
-        }
         switch (position) {
             case 0:
                 selectFragment(IModule1Provider.MODULE1_KEY_FRAGMENT);
                 break;
             case 1:
-                selectFragment(IModule3Provider.MODULE3_KEY_FRAGMENT);
+                selectFragment(IModule2Provider.MODULE2_KEY_FRAGMENT);
                 break;
             case 2:
-                if (ModuleManager.getInstance().hasModule(IModule2Provider.MODULE2_MAIN_SERVICE)) {
-                    selectFragment(IModule2Provider.MODULE2_KEY_FRAGMENT);
+                //
+                if (ModuleManager.getInstance().hasModule(IModule3Provider.MODULE3_MAIN_SERVICE)) {
+                    selectFragment(IModule3Provider.MODULE3_KEY_FRAGMENT);
                 } else if (ModuleManager.getInstance().hasModule(IModule5Provider.MODULE5_MAIN_SERVICE)) {
                     Module5Intent.launchModule5(new UserInfo("王五", 18));
                 }
@@ -77,7 +73,6 @@ public class HomeActivity extends BaseActivity {
         }
         currentPosition = position;
     }
-
 
     private void selectFragment(String key) {
         Fragment fragment;
@@ -89,18 +84,15 @@ public class HomeActivity extends BaseActivity {
             if (IModule1Provider.MODULE1_KEY_FRAGMENT.equals(key)) {
                 fragment = Module1Service.getModule1Frgment();
                 msg = "module1模块";
-
             } else if (IModule2Provider.MODULE2_KEY_FRAGMENT.equals(key)) {
                 fragment = Module2Service.getModule2Fragment();
                 msg = "modul2模块";
             } else if (IModule3Provider.MODULE3_KEY_FRAGMENT.equals(key)) {
-                fragment = Module3Service.getModule2Fragment();
+                fragment = Module3Service.getModule3Fragment();
                 msg = "module3模块";
-            }
-            else {
+            } else {
                 return;
             }
-            LG.e(msg);
             if (fragment == null) {
                 if (LG.isDebug) {
                     Toast.makeText(this, "没有" + msg, Toast.LENGTH_SHORT).show();
@@ -116,13 +108,11 @@ public class HomeActivity extends BaseActivity {
         beginTransaction.commit();
     }
 
-
     private void hideFragment(FragmentTransaction beginTransaction) {
         for (Map.Entry<String, Fragment> item : mFragments.entrySet()) {
             beginTransaction.hide(item.getValue());
         }
     }
-
 
     //一般而言需要这样子传递，Activity不涉及到具体逻辑处理，除非是全局性的
     @Override
