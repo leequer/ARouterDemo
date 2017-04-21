@@ -5,13 +5,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/module5_activity_main_tv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Module1"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@id/core_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
 </LinearLayout>

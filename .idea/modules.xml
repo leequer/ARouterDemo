@@ -7,6 +7,10 @@
       <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
       <module fileurl="file://$PROJECT_DIR$/home/home.iml" filepath="$PROJECT_DIR$/home/home.iml" />
       <module fileurl="file://$PROJECT_DIR$/modulelib1/modulelib1.iml" filepath="$PROJECT_DIR$/modulelib1/modulelib1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modulelib2/modulelib2.iml" filepath="$PROJECT_DIR$/modulelib2/modulelib2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modulelib3/modulelib3.iml" filepath="$PROJECT_DIR$/modulelib3/modulelib3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modulelib4/modulelib4.iml" filepath="$PROJECT_DIR$/modulelib4/modulelib4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modulelib5/modulelib5.iml" filepath="$PROJECT_DIR$/modulelib5/modulelib5.iml" />
     </modules>
   </component>
 </project>

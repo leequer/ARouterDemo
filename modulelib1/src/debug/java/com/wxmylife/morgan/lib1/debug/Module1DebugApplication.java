@@ -1,4 +1,4 @@
-package com.wxmylife.morgan.lib1;
+package com.wxmylife.morgan.lib1.debug;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.wxmylife.morgan.base.BaseApplication;

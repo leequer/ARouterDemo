@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.wxmylife.morgan.lib5">
+
+
+    <application
+        >
+        <activity
+            android:name=".Module5Activity"
+            android:label="module5"/>
+    </application>
+
+</manifest>

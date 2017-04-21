@@ -1,10 +1,10 @@
-package com.wxmylife.morgan.lib1.activity;
+package com.wxmylife.morgan.lib1.debug.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import com.wxmylife.morgan.base.BaseActivity;
 import com.wxmylife.morgan.base.moduleinterface.module.module1.Module1Service;
-import com.wxmylife.morgan.modulelib1.R;
+import com.wxmylife.morgan.lib1.R;
 
 /**
  * Created by wxmylife on 2017/4/21.

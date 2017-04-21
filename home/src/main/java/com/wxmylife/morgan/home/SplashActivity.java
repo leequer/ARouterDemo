@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                HomeIntent.launchHome(0);
+                HomeIntent.launchHome(2);
                 finish();
             }
         }, 1500);

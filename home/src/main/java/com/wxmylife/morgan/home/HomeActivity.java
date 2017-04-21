@@ -9,9 +9,17 @@ import android.view.View;
 import android.widget.Toast;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.wxmylife.morgan.base.BaseActivity;
+import com.wxmylife.morgan.base.dao.UserInfo;
 import com.wxmylife.morgan.base.moduleinterface.module.module1.Module1Service;
+import com.wxmylife.morgan.base.moduleinterface.module.module2.Module2Service;
+import com.wxmylife.morgan.base.moduleinterface.module.module3.Module3Service;
+import com.wxmylife.morgan.base.moduleinterface.module.module5.Module5Intent;
 import com.wxmylife.morgan.base.moduleinterface.provider.IHomeProvider;
 import com.wxmylife.morgan.base.moduleinterface.provider.IModule1Provider;
+import com.wxmylife.morgan.base.moduleinterface.provider.IModule2Provider;
+import com.wxmylife.morgan.base.moduleinterface.provider.IModule3Provider;
+import com.wxmylife.morgan.base.moduleinterface.provider.IModule5Provider;
+import com.wxmylife.morgan.base.moduleinterface.router.ModuleManager;
 import com.wxmylife.morgan.base.utils.LG;
 import java.util.HashMap;
 import java.util.Map;
@@ -57,15 +65,14 @@ public class HomeActivity extends BaseActivity {
                 selectFragment(IModule1Provider.MODULE1_KEY_FRAGMENT);
                 break;
             case 1:
-                // selectFragment(IModule2Provider.MODULE2_KEY_FRAGMENT);
+                selectFragment(IModule3Provider.MODULE3_KEY_FRAGMENT);
                 break;
             case 2:
-                //
-                // if (ModuleManager.getInstance().hasModule(IModule3Provider.MODULE3_MAIN_SERVICE)) {
-                //     selectFragment(IModule3Provider.MODULE3_KEY_FRAGMENT);
-                // } else if (ModuleManager.getInstance().hasModule(IModule5Provider.MODULE5_MAIN_SERVICE)) {
-                //     Module5Intent.launchModule5(new UserInfo("王五", 18));
-                // }
+                if (ModuleManager.getInstance().hasModule(IModule2Provider.MODULE2_MAIN_SERVICE)) {
+                    selectFragment(IModule2Provider.MODULE2_KEY_FRAGMENT);
+                } else if (ModuleManager.getInstance().hasModule(IModule5Provider.MODULE5_MAIN_SERVICE)) {
+                    Module5Intent.launchModule5(new UserInfo("王五", 18));
+                }
                 break;
         }
         currentPosition = position;
@@ -82,17 +89,18 @@ public class HomeActivity extends BaseActivity {
             if (IModule1Provider.MODULE1_KEY_FRAGMENT.equals(key)) {
                 fragment = Module1Service.getModule1Frgment();
                 msg = "module1模块";
+
+            } else if (IModule2Provider.MODULE2_KEY_FRAGMENT.equals(key)) {
+                fragment = Module2Service.getModule2Fragment();
+                msg = "modul2模块";
+            } else if (IModule3Provider.MODULE3_KEY_FRAGMENT.equals(key)) {
+                fragment = Module3Service.getModule2Fragment();
+                msg = "module3模块";
             }
-            // else if (IModule2Provider.MODULE2_KEY_FRAGMENT.equals(key)) {
-            //     fragment = Module2Service.getModule2Fragment();
-            //     msg = "modul2模块";
-            // } else if (IModule3Provider.MODULE3_KEY_FRAGMENT.equals(key)) {
-            //     fragment = Module3Service.getModule2Fragment();
-            //     msg = "module3模块";
-            // }
             else {
                 return;
             }
+            LG.e(msg);
             if (fragment == null) {
                 if (LG.isDebug) {
                     Toast.makeText(this, "没有" + msg, Toast.LENGTH_SHORT).show();

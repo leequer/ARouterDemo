@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.wxmylife.morgan.lib4">
+
+    <application
+        >
+        <activity
+            android:name=".Module4Activity"
+            android:label="module4"/>
+
+    </application>
+
+</manifest>

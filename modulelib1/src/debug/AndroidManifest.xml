@@ -1,13 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
     package="com.wxmylife.morgan.lib1">
 
     <application
         android:theme="@style/AppTheme"
         android:allowBackup="true"
-        android:name=".Module1DebugApplication"
+        android:name=".debug.Module1DebugApplication"
         android:supportsRtl="true">
-        <activity android:name=".activity.Module1DebugActivity">
+        <activity android:name=".debug.activity.Module1DebugActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

@@ -1,1 +1,2 @@
-include ':app', ':home', ':base', ':modulelib1'
+include ':app', ':home', ':base', ':modulelib1', ':modulelib2', ':modulelib3', ':modulelib4',
+        ':modulelib5'
